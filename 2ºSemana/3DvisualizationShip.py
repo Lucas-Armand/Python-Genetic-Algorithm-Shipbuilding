@@ -99,12 +99,10 @@ def Ship3Dplot(fig,blocksList,color):
     fig.tight_layout(pad=0.5)
 
 
+
 if __name__ == "__main__":
-
-    bNumb,bType =defineGeometry('GeometriaNavio.csv')
-    # Define regions 
-    Ship3Dplot(fig,bType['Bottom']+bType['Side Shell'],'b')
-
-
+    fig = plt.figure()
+    bNumb,bType =defineGeometry('CSV/GeometriaNavio.csv')
+    Ship3Dplot(fig,bType['Bottom']+bType['Side Shell']+bType['Cofferdam'],'b') #without truck deck
     plt.show()
 
