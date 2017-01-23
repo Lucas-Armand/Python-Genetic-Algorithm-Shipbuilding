@@ -90,6 +90,6 @@ def Ship3Dplot(fig,blocksList,color):
 
 if __name__ == "__main__":
     fig = plt.figure()
-    bNumb,bType =defineGeometry('GeometriaNavio.csv')
+    bNumb,bType =defineGeometry('CSV/GeometriaNavio.csv')
     Ship3Dplot(fig,bType['Bottom']+bType['Side Shell']+bType['Cofferdam']+bType['Trunk deck'],'b')
     plt.show()
