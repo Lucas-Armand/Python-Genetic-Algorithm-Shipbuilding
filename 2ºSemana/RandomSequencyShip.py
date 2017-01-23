@@ -113,7 +113,7 @@ class Block:
 
 if __name__ == "__main__":
     
-    bNumb,bType =defineGeometry('GeometriaNavio.csv')
+    bNumb,bType =defineGeometry('CSV/GeometriaNavio.csv')
     
     # Define regions 
     
@@ -150,7 +150,7 @@ if __name__ == "__main__":
             BigBlock[i+1]['Cofferdam']=bNumb[63+i]
         
     #Generate Random Sequency
-    MoP=MatrixOfPrecedence('BigBlocksLoP.csv')
+    MoP=MatrixOfPrecedence('CSV/BigBlocksLoP.csv')
     seq = RandomBigBlocks(bNumb,bType,Region,BigBlock,MatrixOfPrecedence)
     
     
