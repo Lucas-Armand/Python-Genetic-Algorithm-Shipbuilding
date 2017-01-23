@@ -9,6 +9,10 @@ Em seguida foram feitas algumas aplicações em python, baseadas na bibliotaca "
   
 Exemplos :
 
-![Exemplo - 3DsequenceShip.py - Frame da animação 3D da sequencia de edificação em pirâmide](https://mega.nz/#!7Zc3lbLY!2CJGmGUq2_iHA6FS_ahHR6Jr2UI0i0tFuHye6l8Fq8M)Welcome to the genetic-algorithm wiki!
+- Exemplo - 3DsequenceShip.py - Frame da animação 3D da sequencia de edificação em pirâmide:
+
+![Exemplo - 3DsequenceShip.py - Frame da animação 3D da sequencia de edificação em pirâmide](https://github.com/Lucas-Armand/genetic-algorithm/blob/master/1%C2%BASemana/IMAGES/piramide_organization_example.png)
+
+- Exemplo - 3DvisualizationShip.py - Blocos de fundo e cofferdam - Visualização 3D:
 
 ![Exemplo - 3DvisualizationShip.py - Blocos de fundo e cofferdam - Visualização 3D ](https://github.com/Lucas-Armand/genetic-algorithm/blob/master/1%C2%BASemana/IMAGES/baseAndCofferdam__vizualisation_example.png)
