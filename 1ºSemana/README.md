@@ -11,4 +11,4 @@ Exemplos :
 
 ![Exemplo - 3DsequenceShip.py - Frame da animação 3D da sequencia de edificação em pirâmide](https://mega.nz/#!7Zc3lbLY!2CJGmGUq2_iHA6FS_ahHR6Jr2UI0i0tFuHye6l8Fq8M)Welcome to the genetic-algorithm wiki!
 
-![Exemplo - 3DvisualizationShip.py - Blocos de fundo e cofferdam - Visualização 3D ](https://mega.nz/#!GFMTmBZC!L29xvaqUVRyoLasckGsXAhfM4gcrpo7T0a_hFrSKa3Q)
+![Exemplo - 3DvisualizationShip.py - Blocos de fundo e cofferdam - Visualização 3D ](https://github.com/Lucas-Armand/genetic-algorithm/blob/master/1%C2%BASemana/IMAGES/baseAndCofferdam__vizualisation_example.png)
