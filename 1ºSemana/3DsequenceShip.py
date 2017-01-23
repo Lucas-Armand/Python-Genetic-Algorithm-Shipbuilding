@@ -95,14 +95,14 @@ def anim(i,fig,bNumb,order,color):
     
 if __name__ == "__main__":
     fig = plt.figure()
-    bNumb,bType =defineGeometry('GeometriaNavio.csv')
+    bNumb,bType =defineGeometry('CSV/GeometriaNavio.csv')
 
-    order = csv_read('Grande Bloco_Meio Navio-PopaProa.csv')
-#    order = csv_read('Camada_Meio Navio-PopaProa.csv')
-#    order = csv_read('Piramide_Meio Navio-PopaProa.csv')
-#    order = csv_read('Grande bloco_Popa-Proa.csv')
-#    order = csv_read('Camada_Popa-Proa.csv')
-#    order = csv_read('Piramide_Popa-Proa.csv')
+    order = csv_read('CSV/Grande Bloco_Meio Navio-PopaProa.csv')
+#    order = csv_read('CSV/Camada_Meio Navio-PopaProa.csv')
+#    order = csv_read('CSV/Piramide_Meio Navio-PopaProa.csv')
+#    order = csv_read('CSV/Grande bloco_Popa-Proa.csv')
+#    order = csv_read('CSV/Camada_Popa-Proa.csv')
+#    order = csv_read('CSV/Piramide_Popa-Proa.csv')
     
     order = [int(i[0]) for i in order]
     print order
