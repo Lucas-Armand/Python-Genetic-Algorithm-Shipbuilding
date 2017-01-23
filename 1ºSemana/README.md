@@ -7,3 +7,8 @@ Em seguida foram feitas algumas aplicações em python, baseadas na bibliotaca "
  - 3DvisualizationShip.py : Permite que um conjunto de blocos seja visualizado no espaço 3D.
  
   
+Exemplos :
+
+![Exemplo - 3DsequenceShip.py - Frame da animação 3D da sequencia de edificação em pirâmide](https://mega.nz/#!7Zc3lbLY!2CJGmGUq2_iHA6FS_ahHR6Jr2UI0i0tFuHye6l8Fq8M)Welcome to the genetic-algorithm wiki!
+
+![Exemplo - 3DvisualizationShip.py - Blocos de fundo e cofferdam - Visualização 3D ](https://mega.nz/#!GFMTmBZC!L29xvaqUVRyoLasckGsXAhfM4gcrpo7T0a_hFrSKa3Q)
