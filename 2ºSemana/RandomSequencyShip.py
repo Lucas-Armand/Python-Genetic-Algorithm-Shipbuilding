@@ -3,13 +3,13 @@
 import os
 import random
 import csv
-from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.pyplot as plt
+#from mpl_toolkits.mplot3d import Axes3D
+#import matplotlib.pyplot as plt
 import numpy as np
 from itertools import product, combinations
 
 
-def csv_read(name):	#Metodo de leitura, transforma um arquivo CSV em  um vetor 
+def csv_read(name):	#Metodo de leitura, transforma um arquivo CSV em  um vetor
 
     CSV=open(name,'r')
     dados=CSV.read()
@@ -95,6 +95,7 @@ def MatrixOfPrecedence(name):
     M.tolist()
     for i in ListOfPrecedence:
         n = (len(i)-1)/2
+        print 'i'
         print i
         if ListOfPrecedence.index(i)!=0:
             for j in range(n):
@@ -112,11 +113,11 @@ class Block:
 
 
 if __name__ == "__main__":
-    
+
     bNumb,bType =defineGeometry('CSV/GeometriaNavio.csv')
-    
-    # Define regions 
-    
+
+    # Define regions
+
     deck=[]
     for i in range(1,17):
         deck.append(bNumb[i])
@@ -128,14 +129,14 @@ if __name__ == "__main__":
         bottom.append([bNumb[33+i*2],bNumb[34+i*2]])
     cofferdam=[]
     for i in range(65,71):
-        cofferdam.append(bNumb[i])   
+        cofferdam.append(bNumb[i])
     Region = {'Bottom':bottom,
               'Side Shell':shell,
               'Trunk deck':deck,
               'Cofferdam':cofferdam}
-    
+
     # Define BigBlocks
-    
+
     BigBlock = {}
     for i in range(8):
         BigBlock[i+1]={}
@@ -148,11 +149,12 @@ if __name__ == "__main__":
             BigBlock[i+1]['Cofferdam']=bNumb[64+i]
         else:
             BigBlock[i+1]['Cofferdam']=bNumb[63+i]
-        
+
     #Generate Random Sequency
     MoP=MatrixOfPrecedence('CSV/BigBlocksLoP.csv')
     seq = RandomBigBlocks(bNumb,bType,Region,BigBlock,MatrixOfPrecedence)
-    
-    
-    
-    
+    print seq
+
+
+
+
