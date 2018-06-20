@@ -15,7 +15,7 @@ O trabalho apresenta uma análise realista do potencial do método de otimizaç�
 ## Input:
 Os inputs do programa são dois arquivos do tipo csv, que contem os dados que caracterizam as retrições do problema, e uma matriz que é definida dentro do próprio código:
 
-* **GeometriaNavio.csv** - Arquivo com a geometria do navio: Número de blocos, tamanho e posição. Ao todo são 16 blocos
+* **GeometriaNavio.csv** - Arquivo com a geometria do navio: Número de blocos, tamanho e posição. No navio usado ao todo são 16 blocos
 de convés, 16 blocos de costado, 32 blocos de fundo e 6 de cofferdam (são blocos estanques que dividem o tanque) totalizando 70 blocos.
 
 <p float="left" >
@@ -23,10 +23,11 @@ de convés, 16 blocos de costado, 32 blocos de fundo e 6 de cofferdam (são bloc
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/ship_blocks.png" width="15%">
 </p>
 
-* **EstructuralLoP.csv** - Arquivo com as relações de precedência entre os blocos. Restrições físicas.
+* **EstructuralLoP.csv** - Arquivo com as relações de precedência entre os blocos. Restrições físicas. O esquema a seguir representa as restições utilizadas na implementação. Os blocos mais abaixo são blocos de fundo, os blocos na meia altura são blocos de costado ou de cofferdam e os blocos mais acima do esquema são blocos de topo. É possível perceber oito "grupos de blocos" que são inter conectados entre si, na embarcação eles correspondem ao chamados "aneis gigantes", cada anel gigante possui dois blocos de topo (que são suportados pelos blocos de costado), dois blocos de costado (que são suportados pelo blocos do fundo, mas que só podem ser fixados depois do bloco de cofferdam se existir), alguns anéis tem um bloco de cofferdam e por fim (sustentando todos os blocos a cima) os quatro blocos de fundo.  
+
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/ordenation.png"/>
 
-* Matriz de correlação entre tempos de edificação: Representa interações positivas e negativas nos recursos utilizados para a construção dos blocos.
+* Matriz de correlação entre tempos de edificação: Representa interações positivas e negativas nos recursos utilizados para a construção dos blocos. Nas imagens a seguir temos um exemplo de Matriz de correlação e um esquema representando as etapas de contrução de dois blocos de um navio, aonde a última etapa é edificação e, dependendo da ordem em que eles são feitos, a edificação de um pode ser feita imeditamente após a do outro, ou será necessário esperar um tempo para o termino das etapas anteriores (esse efeito que os fatores de correlação pretendem capturar).
 
 <p float="left" >
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/time_correlation_matrix.png" width="45%">
