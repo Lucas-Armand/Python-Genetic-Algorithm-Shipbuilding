@@ -18,6 +18,7 @@ O trabalho apresenta uma análise realista do potencial do método de otimizaç�
 ![Imagem Bordo da Embarcação](https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/ship.png){width: 70%}
 ![Imagem dos Blocos da Embarcação](https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/ship_blocks.png)
 
+<img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/ship.png" width="40%">
 
 * EstructuralLoP.csv - Arquivo com as relações de precedência entre os blocos. Restrições físicas.
 !(Esquema de precdência dos Blocos)[link2]
