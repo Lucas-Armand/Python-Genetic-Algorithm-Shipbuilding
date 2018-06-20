@@ -5,6 +5,8 @@ import csv
 import random
 import numpy as np
 import time as Time
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 from itertools import product, combinations
 
 def csv_read(name):	#Metodo de leitura, transforma um arquivo CSV em  um vetor

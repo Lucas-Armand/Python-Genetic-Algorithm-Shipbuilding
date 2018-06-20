@@ -1,0 +1,731 @@
+Help on package matplotlib:
+
+NNAAMMEE
+    matplotlib - This is an object-oriented plotting library.
+
+FFIILLEE
+    /home/armand/anaconda2/lib/python2.7/site-packages/matplotlib/__init__.py
+
+DDEESSCCRRIIPPTTIIOONN
+    A procedural interface is provided by the companion pyplot module,
+    which may be imported directly, e.g.::
+    
+        import matplotlib.pyplot as plt
+    
+    or using ipython::
+    
+        ipython
+    
+    at your terminal, followed by::
+    
+        In [1]: %matplotlib
+        In [2]: import matplotlib.pyplot as plt
+    
+    at the ipython shell prompt.
+    
+    For the most part, direct use of the object-oriented library is
+    encouraged when programming; pyplot is primarily for working
+    interactively.  The
+    exceptions are the pyplot commands :func:`~matplotlib.pyplot.figure`,
+    :func:`~matplotlib.pyplot.subplot`,
+    :func:`~matplotlib.pyplot.subplots`, and
+    :func:`~pyplot.savefig`, which can greatly simplify scripting.
+    
+    Modules include:
+    
+        :mod:`matplotlib.axes`
+            defines the :class:`~matplotlib.axes.Axes` class.  Most pylab
+            commands are wrappers for :class:`~matplotlib.axes.Axes`
+            methods.  The axes module is the highest level of OO access to
+            the library.
+    
+        :mod:`matplotlib.figure`
+            defines the :class:`~matplotlib.figure.Figure` class.
+    
+        :mod:`matplotlib.artist`
+            defines the :class:`~matplotlib.artist.Artist` base class for
+            all classes that draw things.
+    
+        :mod:`matplotlib.lines`
+            defines the :class:`~matplotlib.lines.Line2D` class for
+            drawing lines and markers
+    
+        :mod:`matplotlib.patches`
+            defines classes for drawing polygons
+    
+        :mod:`matplotlib.text`
+            defines the :class:`~matplotlib.text.Text`,
+            :class:`~matplotlib.text.TextWithDash`, and
+            :class:`~matplotlib.text.Annotate` classes
+    
+        :mod:`matplotlib.image`
+            defines the :class:`~matplotlib.image.AxesImage` and
+            :class:`~matplotlib.image.FigureImage` classes
+    
+        :mod:`matplotlib.collections`
+            classes for efficient drawing of groups of lines or polygons
+    
+        :mod:`matplotlib.colors`
+            classes for interpreting color specifications and for making
+            colormaps
+    
+        :mod:`matplotlib.cm`
+            colormaps and the :class:`~matplotlib.image.ScalarMappable`
+            mixin class for providing color mapping functionality to other
+            classes
+    
+        :mod:`matplotlib.ticker`
+            classes for calculating tick mark locations and for formatting
+            tick labels
+    
+        :mod:`matplotlib.backends`
+            a subpackage with modules for various gui libraries and output
+            formats
+    
+    The base matplotlib namespace includes:
+    
+        :data:`~matplotlib.rcParams`
+            a global dictionary of default configuration settings.  It is
+            initialized by code which may be overridded by a matplotlibrc
+            file.
+    
+        :func:`~matplotlib.rc`
+            a function for setting groups of rcParams values
+    
+        :func:`~matplotlib.use`
+            a function for setting the matplotlib backend.  If used, this
+            function must be called immediately after importing matplotlib
+            for the first time.  In particular, it must be called
+            **before** importing pylab (if pylab is imported).
+    
+    matplotlib was initially written by John D. Hunter (1968-2012) and is now
+    developed and maintained by a host of others.
+    
+    Occasionally the internal documentation (python docstrings) will refer
+    to MATLAB&reg;, a registered trademark of The MathWorks, Inc.
+
+PPAACCKKAAGGEE  CCOONNTTEENNTTSS
+    _cm
+    _cm_listed
+    _cntr
+    _contour
+    _delaunay
+    _image
+    _mathtext_data
+    _path
+    _png
+    _pylab_helpers
+    _qhull
+    _tri
+    _version
+    afm
+    animation
+    artist
+    axes (package)
+    axis
+    backend_bases
+    backend_managers
+    backend_tools
+    backends (package)
+    bezier
+    blocking_input
+    cbook
+    cm
+    collections
+    colorbar
+    colors
+    compat (package)
+    container
+    contour
+    dates
+    delaunay (package)
+    docstring
+    dviread
+    externals (package)
+    figure
+    finance
+    font_manager
+    fontconfig_pattern
+    ft2font
+    gridspec
+    hatch
+    image
+    legend
+    legend_handler
+    lines
+    markers
+    mathtext
+    mlab
+    offsetbox
+    patches
+    path
+    patheffects
+    projections (package)
+    pylab
+    pyplot
+    quiver
+    rcsetup
+    sankey
+    scale
+    sphinxext (package)
+    spines
+    stackplot
+    streamplot
+    style (package)
+    table
+    testing (package)
+    texmanager
+    text
+    textpath
+    ticker
+    tight_bbox
+    tight_layout
+    transforms
+    tri (package)
+    ttconv
+    type1font
+    units
+    widgets
+
+SSUUBBMMOODDUULLEESS
+    six
+    subprocess
+
+CCLLAASSSSEESS
+    __builtin__.dict(__builtin__.object)
+        RcParams
+    __builtin__.object
+        Verbose
+        rc_context
+    
+    class RRccPPaarraammss(__builtin__.dict)
+     |  A dictionary object including validation
+     |  
+     |  validating functions are defined and associated with rc parameters in
+     |  :mod:`matplotlib.rcsetup`
+     |  
+     |  Method resolution order:
+     |      RcParams
+     |      __builtin__.dict
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  ____ggeettiitteemm____(self, key)
+     |  
+     |  ____iinniitt____(self, *args, **kwargs)
+     |      # validate values on the way in
+     |  
+     |  ____rreepprr____(self)
+     |  
+     |  ____sseettiitteemm____(self, key, val)
+     |  
+     |  ____ssttrr____(self)
+     |  
+     |  ffiinndd__aallll(self, pattern)
+     |      Return the subset of this RcParams dictionary whose keys match,
+     |      using :func:`re.search`, the given ``pattern``.
+     |      
+     |      .. note::
+     |      
+     |          Changes to the returned dictionary are *not* propagated to
+     |          the parent RcParams dictionary.
+     |  
+     |  kkeeyyss(self)
+     |      Return sorted list of keys.
+     |  
+     |  uuppddaattee(self, *args, **kwargs)
+     |      # http://stackoverflow.com/questions/2390827
+     |      # (how-to-properly-subclass-dict-and-override-get-set)
+     |      # the default dict `update` does not use __setitem__
+     |      # so rcParams.update(...) (such as in seaborn) side-steps
+     |      # all of the validation over-ride update to force
+     |      # through __setitem__
+     |  
+     |  vvaalluueess(self)
+     |      Return values in order of sorted keys.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  ____ddiicctt____
+     |      dictionary for instance variables (if defined)
+     |  
+     |  ____wweeaakkrreeff____
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  mmssgg__ddeepprr = u'%s is deprecated and replaced with %s; please use the lat...
+     |  
+     |  mmssgg__ddeepprr__iiggnnoorree = u'%s is deprecated and ignored. Use %s'
+     |  
+     |  vvaalliiddaattee = {u'agg.path.chunksize': <function validate_int>, u'animatio...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from __builtin__.dict:
+     |  
+     |  ____ccmmpp____(...)
+     |      x.__cmp__(y) <==> cmp(x,y)
+     |  
+     |  ____ccoonnttaaiinnss____(...)
+     |      D.__contains__(k) -> True if D has a key k, else False
+     |  
+     |  ____ddeelliitteemm____(...)
+     |      x.__delitem__(y) <==> del x[y]
+     |  
+     |  ____eeqq____(...)
+     |      x.__eq__(y) <==> x==y
+     |  
+     |  ____ggee____(...)
+     |      x.__ge__(y) <==> x>=y
+     |  
+     |  ____ggeettaattttrriibbuuttee____(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  ____ggtt____(...)
+     |      x.__gt__(y) <==> x>y
+     |  
+     |  ____iitteerr____(...)
+     |      x.__iter__() <==> iter(x)
+     |  
+     |  ____llee____(...)
+     |      x.__le__(y) <==> x<=y
+     |  
+     |  ____lleenn____(...)
+     |      x.__len__() <==> len(x)
+     |  
+     |  ____lltt____(...)
+     |      x.__lt__(y) <==> x<y
+     |  
+     |  ____nnee____(...)
+     |      x.__ne__(y) <==> x!=y
+     |  
+     |  ____ssiizzeeooff____(...)
+     |      D.__sizeof__() -> size of D in memory, in bytes
+     |  
+     |  cclleeaarr(...)
+     |      D.clear() -> None.  Remove all items from D.
+     |  
+     |  ccooppyy(...)
+     |      D.copy() -> a shallow copy of D
+     |  
+     |  ffrroommkkeeyyss(...)
+     |      dict.fromkeys(S[,v]) -> New dict with keys from S and values equal to v.
+     |      v defaults to None.
+     |  
+     |  ggeett(...)
+     |      D.get(k[,d]) -> D[k] if k in D, else d.  d defaults to None.
+     |  
+     |  hhaass__kkeeyy(...)
+     |      D.has_key(k) -> True if D has a key k, else False
+     |  
+     |  iitteemmss(...)
+     |      D.items() -> list of D's (key, value) pairs, as 2-tuples
+     |  
+     |  iitteerriitteemmss(...)
+     |      D.iteritems() -> an iterator over the (key, value) items of D
+     |  
+     |  iitteerrkkeeyyss(...)
+     |      D.iterkeys() -> an iterator over the keys of D
+     |  
+     |  iitteerrvvaalluueess(...)
+     |      D.itervalues() -> an iterator over the values of D
+     |  
+     |  ppoopp(...)
+     |      D.pop(k[,d]) -> v, remove specified key and return the corresponding value.
+     |      If key is not found, d is returned if given, otherwise KeyError is raised
+     |  
+     |  ppooppiitteemm(...)
+     |      D.popitem() -> (k, v), remove and return some (key, value) pair as a
+     |      2-tuple; but raise KeyError if D is empty.
+     |  
+     |  sseettddeeffaauulltt(...)
+     |      D.setdefault(k[,d]) -> D.get(k,d), also set D[k]=d if k not in D
+     |  
+     |  vviieewwiitteemmss(...)
+     |      D.viewitems() -> a set-like object providing a view on D's items
+     |  
+     |  vviieewwkkeeyyss(...)
+     |      D.viewkeys() -> a set-like object providing a view on D's keys
+     |  
+     |  vviieewwvvaalluueess(...)
+     |      D.viewvalues() -> an object providing a view on D's values
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from __builtin__.dict:
+     |  
+     |  ____hhaasshh____ = None
+     |  
+     |  ____nneeww____ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+    
+    class VVeerrbboossee(__builtin__.object)
+     |  A class to handle reporting.  Set the fileo attribute to any file
+     |  instance to handle the output.  Default is sys.stdout
+     |  
+     |  Methods defined here:
+     |  
+     |  ____iinniitt____(self)
+     |  
+     |  ggee(self, level)
+     |      return true if self.level is >= level
+     |  
+     |  rreeppoorrtt(self, s, level=u'helpful')
+     |      print message s to self.fileo if self.level>=level.  Return
+     |      value indicates whether a message was issued
+     |  
+     |  sseett__ffiilleeoo(self, fname)
+     |  
+     |  sseett__lleevveell(self, level)
+     |      set the verbosity to one of the Verbose.levels strings
+     |  
+     |  wwrraapp(self, fmt, func, level=u'helpful', always=True)
+     |      return a callable function that wraps func and reports it
+     |      output through the verbose handler if current verbosity level
+     |      is higher than level
+     |      
+     |      if always is True, the report will occur on every function
+     |      call; otherwise only on the first time the function is called
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  ____ddiicctt____
+     |      dictionary for instance variables (if defined)
+     |  
+     |  ____wweeaakkrreeff____
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  ii = 3
+     |  
+     |  lleevveell = u'debug-annoying'
+     |  
+     |  lleevveellss = (u'silent', u'helpful', u'debug', u'debug-annoying')
+     |  
+     |  vvaalldd = {u'debug': 2, u'debug-annoying': 3, u'helpful': 1, u'silent': 0...
+    
+    class rrcc__ccoonntteexxtt(__builtin__.object)
+     |  Return a context manager for managing rc settings.
+     |  
+     |  This allows one to do::
+     |  
+     |      with mpl.rc_context(fname='screen.rc'):
+     |          plt.plot(x, a)
+     |          with mpl.rc_context(fname='print.rc'):
+     |              plt.plot(x, b)
+     |          plt.plot(x, c)
+     |  
+     |  The 'a' vs 'x' and 'c' vs 'x' plots would have settings from
+     |  'screen.rc', while the 'b' vs 'x' plot would have settings from
+     |  'print.rc'.
+     |  
+     |  A dictionary can also be passed to the context manager::
+     |  
+     |      with mpl.rc_context(rc={'text.usetex': True}, fname='screen.rc'):
+     |          plt.plot(x, a)
+     |  
+     |  The 'rc' dictionary takes precedence over the settings loaded from
+     |  'fname'.  Passing a dictionary only is also valid.
+     |  
+     |  Methods defined here:
+     |  
+     |  ____eenntteerr____(self)
+     |  
+     |  ____eexxiitt____(self, type, value, tb)
+     |  
+     |  ____iinniitt____(self, rc=None, fname=None)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  ____ddiicctt____
+     |      dictionary for instance variables (if defined)
+     |  
+     |  ____wweeaakkrreeff____
+     |      list of weak references to the object (if defined)
+
+FFUUNNCCTTIIOONNSS
+    cchheecckkddeepp__ddvviippnngg()
+    
+    cchheecckkddeepp__gghhoossttssccrriipptt()
+    
+    cchheecckkddeepp__iinnkkssccaappee()
+    
+    cchheecckkddeepp__ppddffttooppss()
+    
+    cchheecckkddeepp__ppss__ddiissttiilllleerr(s)
+    
+    cchheecckkddeepp__tteexx()
+    
+    cchheecckkddeepp__uusseetteexx(s)
+    
+    cchheecckkddeepp__xxmmlllliinntt()
+    
+    ccoommppaarree__vveerrssiioonnss(a, b)
+        return True if a is greater than or equal to b
+    
+    ggeett__bbaacckkeenndd()
+        Return the name of the current backend.
+    
+    ggeett__ccaacchheeddiirr = wrapper(*args, **kwargs)
+        Return the location of the cache directory.
+        
+        The procedure used to find the directory is the same as for
+        _get_config_dir, except using `$XDG_CACHE_HOME`/`~/.cache` instead.
+    
+    ggeett__ccoonnffiiggddiirr = wrapper(*args, **kwargs)
+        Return the string representing the configuration directory.
+        
+        The directory is chosen as follows:
+        
+        1. If the MPLCONFIGDIR environment variable is supplied, choose that.
+        
+        2a. On Linux, if `$HOME/.matplotlib` exists, choose that, but warn that
+            that is the old location.  Barring that, follow the XDG specification
+            and look first in `$XDG_CONFIG_HOME`, if defined, or `$HOME/.config`.
+        
+        2b. On other platforms, choose `$HOME/.matplotlib`.
+        
+        3. If the chosen directory exists and is writable, use that as the
+           configuration directory.
+        4. If possible, create a temporary directory, and use it as the
+           configuration directory.
+        5. A writable directory could not be found or created; return None.
+    
+    ggeett__ddaattaa__ppaatthh = wrapper(*args, **kwargs)
+    
+    ggeett__eexxaammppllee__ddaattaa(fname)
+        get_example_data is deprecated -- use matplotlib.cbook.get_sample_data
+                                          instead
+    
+    ggeett__hhoommee = wrapper(*args, **kwargs)
+        Find user's home directory if possible.
+        Otherwise, returns None.
+        
+        :see:
+            http://mail.python.org/pipermail/python-list/2005-February/325395.html
+    
+    ggeett__ppyy22eexxee__ddaattaaffiilleess()
+    
+    iinntteerraaccttiivvee(b)
+        Set interactive mode to boolean b.
+        
+        If b is True, then draw after every plotting command, e.g., after xlabel
+    
+    iiss__iinntteerraaccttiivvee()
+        Return true if plot mode is interactive
+    
+    iiss__uurrll(filename)
+        Return True if string is an http, ftp, or file URL path.
+    
+    mmaattpplloottlliibb__ffnnaammee()
+        Get the location of the config file.
+        
+        The file location is determined in the following order
+        
+        - `$PWD/matplotlibrc`
+        
+        - `$MATPLOTLIBRC/matplotlibrc`
+        
+        - `$MPLCONFIGDIR/matplotlibrc`
+        
+        - On Linux,
+        
+              - `$HOME/.matplotlib/matplotlibrc`, if it exists
+        
+              - or `$XDG_CONFIG_HOME/matplotlib/matplotlibrc` (if
+                $XDG_CONFIG_HOME is defined)
+        
+              - or `$HOME/.config/matplotlib/matplotlibrc` (if
+                $XDG_CONFIG_HOME is not defined)
+        
+        - On other platforms,
+        
+             - `$HOME/.matplotlib/matplotlibrc` if `$HOME` is defined.
+        
+        - Lastly, it looks in `$MATPLOTLIBDATA/matplotlibrc` for a
+          system-defined copy.
+    
+    rrcc(group, **kwargs)
+        Set the current rc params.  Group is the grouping for the rc, e.g.,
+        for ``lines.linewidth`` the group is ``lines``, for
+        ``axes.facecolor``, the group is ``axes``, and so on.  Group may
+        also be a list or tuple of group names, e.g., (*xtick*, *ytick*).
+        *kwargs* is a dictionary attribute name/value pairs, e.g.,::
+        
+          rc('lines', linewidth=2, color='r')
+        
+        sets the current rc params and is equivalent to::
+        
+          rcParams['lines.linewidth'] = 2
+          rcParams['lines.color'] = 'r'
+        
+        The following aliases are available to save typing for interactive
+        users:
+        
+        =====   =================
+        Alias   Property
+        =====   =================
+        'lw'    'linewidth'
+        'ls'    'linestyle'
+        'c'     'color'
+        'fc'    'facecolor'
+        'ec'    'edgecolor'
+        'mew'   'markeredgewidth'
+        'aa'    'antialiased'
+        =====   =================
+        
+        Thus you could abbreviate the above rc command as::
+        
+              rc('lines', lw=2, c='r')
+        
+        
+        Note you can use python's kwargs dictionary facility to store
+        dictionaries of default parameters.  e.g., you can customize the
+        font rc as follows::
+        
+          font = {'family' : 'monospace',
+                  'weight' : 'bold',
+                  'size'   : 'larger'}
+        
+          rc('font', **font)  # pass in the font dict as kwargs
+        
+        This enables you to easily switch between several configurations.
+        Use :func:`~matplotlib.pyplot.rcdefaults` to restore the default
+        rc params after changes.
+    
+    rrcc__ffiillee(fname)
+        Update rc params from file.
+    
+    rrcc__ffiillee__ddeeffaauullttss()
+        Restore the default rc params from the original matplotlib rc that
+        was loaded
+    
+    rrcc__ppaarraammss(fail_on_error=False)
+        Return a :class:`matplotlib.RcParams` instance from the
+        default matplotlib rc file.
+    
+    rrcc__ppaarraammss__ffrroomm__ffiillee(fname, fail_on_error=False, use_default_template=True)
+        Return :class:`matplotlib.RcParams` from the contents of the given file.
+        
+        Parameters
+        ----------
+        fname : str
+            Name of file parsed for matplotlib settings.
+        fail_on_error : bool
+            If True, raise an error when the parser fails to convert a parameter.
+        use_default_template : bool
+            If True, initialize with default parameters before updating with those
+            in the given file. If False, the configuration class only contains the
+            parameters specified in the file. (Useful for updating dicts.)
+    
+    rrccddeeffaauullttss()
+        Restore the default rc params.  These are not the params loaded by
+        the rc file, but mpl's internal params.  See rc_file_defaults for
+        reloading the default params from the rc file
+    
+    rreellooaadd(...)
+        reload(module) -> module
+        
+        Reload the module.  The module must have been successfully imported before.
+    
+    tteesstt(verbosity=1)
+        run the matplotlib test suite
+    
+    ttkk__wwiinnddooww__ffooccuuss()
+        Return true if focus maintenance under TkAgg on win32 is on.
+        This currently works only for python.exe and IPython.exe.
+        Both IDLE and Pythonwin.exe fail badly when tk_window_focus is on.
+    
+    uunnppaacckk__llaabbeelleedd__ddaattaa(replace_names=None, replace_all_args=False, label_namer=None, positional_parameter_names=None)
+        A decorator to add a 'data' kwarg to any a function.  The signature
+        of the input function must include the ax argument at the first position ::
+        
+           def foo(ax, *args, **kwargs)
+        
+        so this is suitable for use with Axes methods.
+        
+        Parameters
+        ----------
+        replace_names : list of strings, optional, default: None
+            The list of parameter names which arguments should be replaced by
+            `data[name]`. If None, all arguments are replaced if they are
+            included in `data`.
+        replace_all_args : bool, default: False
+            If True, all arguments in *args get replaced, even if they are not
+            in replace_names.
+        label_namer : string, optional, default: None
+            The name of the parameter which argument should be used as label, if
+            label is not set. If None, the label keyword argument is not set.
+        positional_parameter_names : list of strings or callable, optional
+            The full list of positional parameter names (excluding an explicit
+            `ax`/'self' argument at the first place and including all possible
+            positional parameter in `*args`), in the right order. Can also include
+            all other keyword parameter. Only needed if the wrapped function does
+            contain `*args` and (replace_names is not None or replace_all_args is
+            False). If it is a callable, it will be called with the actual
+            tuple of *args and the data and should return a list like
+            above.
+            NOTE: callables should only be used when the names and order of *args
+            can only be determined at runtime. Please use list of names
+            when the order and names of *args is clear before runtime!
+    
+    uussee(arg, warn=True, force=False)
+        Set the matplotlib backend to one of the known backends.
+        
+        The argument is case-insensitive. *warn* specifies whether a
+        warning should be issued if a backend has already been set up.
+        *force* is an **experimental** flag that tells matplotlib to
+        attempt to initialize a new backend by reloading the backend
+        module.
+        
+        .. note::
+        
+            This function must be called *before* importing pyplot for
+            the first time; or, if you are not using pyplot, it must be called
+            before importing matplotlib.backends.  If warn is True, a warning
+            is issued if you try and call this after pylab or pyplot have been
+            loaded.  In certain black magic use cases, e.g.
+            :func:`pyplot.switch_backend`, we are doing the reloading necessary to
+            make the backend switch work (in some cases, e.g., pure image
+            backends) so one can set warn=False to suppress the warnings.
+        
+        To find out which backend is currently set, see
+        :func:`matplotlib.get_backend`.
+    
+    vveerriiffyy__tteesstt__ddeeppeennddeenncciieess()
+
+DDAATTAA
+    UURRLL__RREEGGEEXX = <_sre.SRE_Pattern object>
+    ____vveerrssiioonn____ = '1.5.1'
+    ____vveerrssiioonn____nnuummppyy____ = '1.6'
+    aabbssoolluuttee__iimmppoorrtt = _Feature((2, 5, 0, 'alpha', 1), (3, 0, 0, 'alpha', 0...
+    bbaadd__ppyyppaarrssiinngg = False
+    ddeeffaauulltt = True
+    ddeeffaauullttPPaarraammss = {u'agg.path.chunksize': [0, <function validate_int>], ...
+    ddeeffaauulltt__tteesstt__mmoodduulleess = [u'matplotlib.tests.test_agg', u'matplotlib.tes...
+    ddiivviissiioonn = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192...
+    ff = Forward: ...
+    kkeeyy = u'svg.embed_char_paths'
+    mmaajjoorr = 2
+    mmiinnoorr11 = 7
+    mmiinnoorr22 = 13
+    pprriinntt__ffuunnccttiioonn = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0)...
+    rrccPPaarraammss = RcParams({u'agg.path.chunksize': 0,
+              u'...le': Fal...
+    rrccPPaarraammssDDeeffaauulltt = RcParams({u'agg.path.chunksize': 0,
+              u'...l...
+    rrccPPaarraammssOOrriigg = {u'agg.path.chunksize': 0, u'animation.avconv_args': []...
+    ss = 'final'
+    ttmmpp = 0
+    uunniiccooddee__lliitteerraallss = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', ...
+    vveerrbboossee = <matplotlib.Verbose object>
+
+VVEERRSSIIOONN
+    1.5.1
+

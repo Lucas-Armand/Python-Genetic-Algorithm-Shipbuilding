@@ -5,6 +5,8 @@ import csv
 import random
 import numpy as np
 import time as Time
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 from itertools import product, combinations
 
 def csv_read(name):	#Metodo de leitura, transforma um arquivo CSV em  um vetor
@@ -35,35 +37,18 @@ def csv_read(name):	#Metodo de leitura, transforma um arquivo CSV em  um vetor
     os.remove("temp.csv")
     return (v)
 
-def printlock(ax,block,clr):
-    point = block.p
-    a = block.a
-    b = block.b
-    c = block.c
-    for s, e in combinations(np.array(list(product([0,a],[0,b],[0,c]))), 2):
-        s=s+point
-        e=e+point
-        alfa = round(a, 5)
-        beta = round(b, 5)
-        gama = round(c, 5)
-        delt = round(np.linalg.norm(np.abs(s-e)),5)
-        if delt in [alfa,beta,gama]:
-            ax.plot3D(*zip(s,e), color=clr)
-
 def MatrixOfPrecedence(name):
     ListOfPrecedence = csv_read(name)
     n= len(ListOfPrecedence)
     M = np.zeros((n,n))
     M.tolist()
     for j in ListOfPrecedence:
-
         if ListOfPrecedence.index(j)!=0:    #jump the first (title)
             try:
                 elements = j[1].split(' - ')
             except:
                 elements = [j[1]]
             elements = map(float,elements)
-
             for i in elements:
                 M[int(i)][int(j[0])] = 1
 
@@ -71,9 +56,7 @@ def MatrixOfPrecedence(name):
         s = sum(M[:,j])
         if s!=0:
             M[:,j] = M[:,j]*1./s
-
     return M
-
 
 def defineGeometry(name):
 
@@ -91,23 +74,6 @@ def defineGeometry(name):
 
     return blockNumber
 
-def Ship3Dplot(fig,blocksList,color):
-
-    ax = fig.gca(projection='3d')
-    ax.set_aspect("equal")
-
-    for block in blocksList:
-        printlock(ax,block,color)
-
-    # Create cubic bounding box to simulate equal aspect ratio #
-    Xb = 0.5*250*np.mgrid[-1:2:2,-1:2:2,-1:2:2][0].flatten() + 125
-    Yb = 0.5*200*np.mgrid[-1:2:2,-1:2:2,-1:2:2][1].flatten() + 0
-    Zb = 0.5*200*np.mgrid[-1:2:2,-1:2:2,-1:2:2][2].flatten() + 20
-    for xb, yb, zb in zip(Xb, Yb, Zb):
-       ax.plot([xb], [yb], [zb], 'w')
-    fig.tight_layout(pad=0.5)
-
-
 def convert(chromo):
 
     orderly = []
@@ -115,11 +81,9 @@ def convert(chromo):
         orderly.append(chromo.index(i))
     return orderly
 
-
 class Genetic:
 
-    def __init__(self,teta,Teta,n,N,bNumb,vicinity,C1,C2,m):
-
+    def __init__(self,teta,Teta,n,N,bNumb,vicinity,m):
         self.teta = teta
         self.Teta = Teta
         self.n = n
@@ -127,18 +91,15 @@ class Genetic:
         self.bNumb = bNumb
         self.vicinity = vicinity
         self.m = m
-        self.C1=C1
-        self.C2=C2
 
     def run(self,population = None):
-        C1,C2 = self.C1,self.C2
+
         Pre,Pos = self.precedences(self.m)
         groups = self.order(Pre,self.bNumb,self.m)
         if population == None:
             first = [self.gen_chromosome(groups,self.m) for i in range(self.N)]
-            time = [self.time(bNumb,vicinity,chromo,Pre,C1,C2) for chromo in first]
+            time = [self.time(bNumb,vicinity,chromo) for chromo in first]
             self.population = [ [t,c] for t,c in zip(time,first)]
-
         else:
             self.population = population
         best = min(self.population, key = lambda x:x[0])
@@ -146,7 +107,7 @@ class Genetic:
         old_best = 0
         while round(best[0],8)> 70:
             cont+=1
-            self.population = self.new_population(self.n,self.teta,self.Teta,self.population,Pre,Pos,C1,C2,self.m)
+            self.population = self.new_population(self.n,self.teta,self.Teta,self.population,Pre,Pos,self.m)
             best = min(self.population, key = lambda x:x[0])
             print cont,best[0]
 
@@ -285,7 +246,7 @@ class Genetic:
 
         return c1,c2
 
-    def time(self,bNumb,vicinity,chromo,Pre,C1,C2):
+    def time(self,bNumb,vicinity,chromo):
 
         alfa = 1
         built = set()
@@ -296,113 +257,13 @@ class Genetic:
         self.built = built
 
         vic = [set(vicinity[x]) for x in chromo]
-        times = [t_vec(x,y,bNumb) for x,y in zip(chromo,vic)]
-        M1,M2,time = self.decodification(chromo,times,Pre,bNumb,C1,C2)
+        time = sum((t_vec(x,y,bNumb) for x,y in zip(chromo,vic)))
 
         return time
 
-    def decodification(self,chromo,times,Pre,bNumb,C1,C2):
 
-        m1=[]       #ja começa com o job 1
-        m2=[]
 
-        time_m1 = 0 # ja começo com o tempo do job 1 em todas
-        time_m2 = 0
-
-        built={}
-
-        for B,T in zip(chromo,times):
-
-            pre = Pre[B]
-            time=0
-
-            weight = bNumb[B].w
-            if C1 > weight and C2> weight:
-                start_time = 0
-                for pre_b in pre:     # devo buscar em que tempo o block pode começar a ser edificado
-                    builts = built.keys()
-                    if pre_b in built:
-                        t = built[pre_b]
-                        if t>start_time:
-                            start_time = t
-                time = start_time
-
-                list_sorted = [[time,'prior. = 4','t'],[time_m1,'prior. 3',m1],[time_m2,'prior. 2',m2]]
-                list_sorted.sort()
-
-                for i in range(len(list_sorted)):
-                    if list_sorted[i][2]=='t':
-                        index = i
-
-                if index== 1:
-                    pre_time = list_sorted[0][0]
-
-                    if pre_time == time:
-                        maq = list_sorted[0][2]
-                    else:
-                        maq = list_sorted[2][2]
-                else:
-                    # IF INDEX == 2 => CHOSE "index-1" THAT IS "1" ; IF INDEX == 0 => CHOSE "index+1" THAT IS "1"
-                    maq = list_sorted[1][2]
-
-                maq.append(B)
-
-                if maq == m1:
-                    if time_m1>time:
-                        time = time_m1
-                    time = time + T
-                    time_m1 = time
-                    #print 'job = ',job,'  Time = ',time_m1, '  Machine 1'
-
-                else:
-                    if time_m2>time:
-                        time = time_m2
-                    time = time + T
-                    time_m2 = time
-                    #print 'job = ',job,'  Time = ',time_m2, '  Machine 2'
-
-                built[B]=time
-
-            elif C1 > weight and C2< weight:
-
-                m1.append(B)
-
-                time = time_m1
-                time+= T
-                time_m1 = time
-
-                built[B]=time
-
-            elif C1 < weight and C2> weight:
-
-                m2.append(B)
-
-                time = time_m2
-                time+= T
-                time_m2 = time
-
-                built[B]=time
-
-            else:
-                if  C1+C2 < weight:
-                        print "!WEIGHT ERROR!"
-
-                m1.append(B)
-                m2.append(B)
-
-                time = max(time_m1,time_m2)
-                time+= T
-                time_m1 = time
-                time_m2 = time
-
-                built[B]=time
-
-        M1=[m1,time_m1]
-        M2=[m2,time_m2]
-
-        return M1,M2,time
-
-    def new_population(self,n,teta,Teta,population,Pre,Pos,C1,C2,m):
+    def new_population(self,n,teta,Teta,population,Pre,Pos,m):
 
         size =  len(population)
         new_population= []
@@ -415,14 +276,14 @@ class Genetic:
             elif (ch1 == p2).all():
                 t1 = t_p2
             else:
-                t1 = self.time(bNumb,vicinity,ch1,Pre,C1,C2)
+                t1 = self.time(bNumb,vicinity,ch1)
 
             if (ch2 == p1).all():
                 t2 = t_p1
             elif (ch2 == p2).all():
                 t2 = t_p2
             else:
-                t2 = self.time(bNumb,vicinity,ch2,Pre,C1,C2)
+                t2 = self.time(bNumb,vicinity,ch2)
 
             new_population+=[[t1,ch1],[t2,ch2]]
         return new_population
@@ -532,13 +393,6 @@ class Genetic:
 
         return parent1,parent2,t1,t2
 
-
-def anim(i,fig,bNumb,order,color):
-    try:
-        Ship3Dplot(fig, [bNumb[order[i]]],color)
-    except:
-        pass
-
 class Block:
     def __init__(self,point,a,b,c,weight,btype):
         self.p=point
@@ -588,11 +442,12 @@ if __name__ == "__main__":
         vicinity[i]  = [i-1,i+1]
     vicinity[70] = [69]
 
-    #execute
+    #execue
     MoP = MatrixOfPrecedence('EstructuralLoP.csv')
 
-    G = Genetic(0.35,.8,4,300,bNumb,vicinity,350,350,MoP)
+    G = Genetic(0.35,.8,4,300,bNumb,vicinity,MoP)
     Pre,Pos = G.precedences(MoP)
+    order = G.order(Pre,bNumb,MoP)
 
 
 #    order = csv_read('Ordens/Grande Bloco_Meio Navio-PopaProa.csv')
@@ -601,8 +456,10 @@ if __name__ == "__main__":
 #    order = csv_read('Ordens/Grande bloco_Popa-Proa.csv')
 #    order = csv_read('Ordens/Camada_Popa-Proa.csv')
 #    order = csv_read('Ordens/Piramide_Popa-Proa.csv')
+#    print order
 
 
-    result = G.run()
-    print(result)
+
+    import cProfile
+    cProfile.run('G.run()')
 
