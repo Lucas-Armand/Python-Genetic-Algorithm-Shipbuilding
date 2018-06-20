@@ -42,4 +42,9 @@ Os resultados do programa são apresentado pelo o tempo total de construção do
 
 O resultado (cromossomo) é a sequencia dos "id"s dos blocos em ordem de edificação, mas como a forma como a resposta é construida tornaa de dificil comprienção  eu criei dois modos de vizualização dessas respostas:
 
+<p float="left" >
+<img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/test.gif" width="45%">
+<img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/test1.png" width="45%">
+</p>
 
+As duas imagens acima são representações de uma mesma ordenação (ordenaçãod e construção pirmidal partindo do centro), o gráfico em calor tenta sintetizar em uma representação estática a sequência representada na animação através de uma escala de cor.  
