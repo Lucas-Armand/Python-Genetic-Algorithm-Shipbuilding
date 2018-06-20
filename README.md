@@ -17,7 +17,7 @@ O trabalho apresenta uma análise realista do potencial do método de otimizaç�
 Para executar o algorítimo basta rodar o programa "**Genetic Alghoritmic (1 crane).py**". 
 
 O programa foi construido em cima de uma classe deniminada "genetic" que é básicamente toda a programação do algorítimo genético orientado a objetos. Os principais métodos dessa classe são:
-
+```
 genetic
 ∟ run = executa o algorítimo genético
 ∟ gen_chromosome = gera um chromosomo de maneira aleatória, respeitando as restrições
@@ -25,6 +25,7 @@ genetic
 ∟ crossover = recombina dois chromossomos gerando "indivíduos ordenações" novos
 ∟ time = calcula o tempo de uma ordenação (score)
 ∟ new_population =  gera um nova população de 'n' cromossomos novos, baseados nos melhores individuos da população anterior
+```
 
 ### Input:
 Os inputs do programa são dois arquivos do tipo csv, que contem os dados que caracterizam as retrições do problema, e uma matriz que é definida dentro do próprio código:
