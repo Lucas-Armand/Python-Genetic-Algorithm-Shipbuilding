@@ -402,10 +402,6 @@ class Block:
 
 if __name__ == "__main__":
 
-
-    fig = plt.figure()
-
-
     bNumb=defineGeometry('GeometriaNavio.csv')
 
     # Define vicinity
@@ -456,8 +452,5 @@ if __name__ == "__main__":
 #    order = csv_read('Ordens/Piramide_Popa-Proa.csv')
 #    print order
 
-
-
-    import cProfile
-    cProfile.run('G.run()')
-
+    best = G.run()
+    print best
