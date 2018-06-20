@@ -4,7 +4,7 @@ A realistic analysis of the potential of this optimization method to shipbuildin
 
 # Algorítimo Genético em Python para Resolver a Ordenação dos Blocos na Edificação de Navios
 
-O trabalho apresenta uma análise realista do potencial do método de otimização do processo de edificação de blocos de navios em estaleiros de construção naval e discute as dificuldades para sua implementação. Foi realizada um uma revisão teórica do problema edificação e das técnicas de otimização nele empregados, verificando-se que o método aqui proposto vem a prencher uma lacuna, representando uma contribuição importante para solução de problemas dessa naturaza. Foi desenvolvido e implementado um modelo de algoritmo genético para o caso de ordenação da edificação para diferentes estratégias tendo-se obtidos resultados que comprovam a eficacia do método. Por fim, apresenta-se uma discussão sobre as limitações e potencialidades do método e são apresentadas propostas para aperfeiçoamente e possíveis aplicações para área da engenharia naval.
+O trabalho apresenta uma análise realista do potencial do método de otimização do processo de edificação de blocos de navios em estaleiros de construção naval e discute as dificuldades para sua implementação. Foi realizada um uma revisão teórica do problema edificação e das técnicas de otimização nele empregados, verificando-se que esse tipo de trabalho representa um avanço a área. Para esse artifo o autor desenvolveu e implementou toda a modelação do problema e cada um dos "operadores genéticodos" do alogrítimo aplicando-os diferentes casos de restrições de edificação tendo-se obtidos resultados que comprovam a eficacia do método. Por fim, apresenta-se uma discussão sobre as limitações e potencialidades do método e são apresentadas propostas para aperfeiçoamente e possíveis aplicações para área da engenharia naval.
 
 ## Requisitos
 
@@ -12,7 +12,21 @@ O trabalho apresenta uma análise realista do potencial do método de otimizaç�
 * NumPy 1.10.4
 * MatPlotLib 2.2.2 
 
-## Input:
+## Funcionalidade:
+
+Para executar o algorítimo basta rodar o programa "**Genetic Alghoritmic (1 crane).py**". 
+
+O programa foi construido em cima de uma classe deniminada "genetic" que é básicamente toda a programação do algorítimo genético orientado a objetos. Os principais métodos dessa classe são:
+
+genetic
+∟ run = executa o algorítimo genético
+∟ gen_chromosome = gera um chromosomo de maneira aleatória, respeitando as restrições
+∟ mutation = pega um cromossomo e tenta fazer uma mutação (alteração minima)
+∟ crossover = recombina dois chromossomos gerando "indivíduos ordenações" novos
+∟ time = calcula o tempo de uma ordenação (score)
+∟ new_population =  gera um nova população de 'n' cromossomos novos, baseados nos melhores individuos da população anterior
+
+### Input:
 Os inputs do programa são dois arquivos do tipo csv, que contem os dados que caracterizam as retrições do problema, e uma matriz que é definida dentro do próprio código:
 
 * **GeometriaNavio.csv** - Arquivo com a geometria do navio: Número de blocos, tamanho e posição. No navio usado ao todo são 16 blocos
@@ -34,7 +48,7 @@ de convés, 16 blocos de costado, 32 blocos de fundo e 6 de cofferdam (são bloc
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/blocks_const.png" width="45%">
 </p>
 
-## Output:
+### Output:
 
 Os resultados do programa são apresentado pelo o tempo total de construção do návio, da melhor ordenação obtida pelo programa, em "unidades de tempo" por geração, ou seja, os valores mostram, geração á geração, a convergência para o resultado ótimo do problema:
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/terminal.png" width="80%">
