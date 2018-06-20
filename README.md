@@ -40,4 +40,6 @@ Os resultados do programa são apresentado pelo o tempo total de construção do
 
 ### Vizulização dos resultados:
 
-O resultado (cromossomo) é a sequencia dos "id"s dos blocos em ordem de edificação, mas como compriender o siginficado difícil "ler" os resultados eu desenvolvi dos modos de vizualização:
+O resultado (cromossomo) é a sequencia dos "id"s dos blocos em ordem de edificação, mas como a forma como a resposta é construida tornaa de dificil comprienção  eu criei dois modos de vizualização dessas respostas:
+
+
