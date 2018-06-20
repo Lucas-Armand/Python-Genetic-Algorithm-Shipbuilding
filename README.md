@@ -18,10 +18,14 @@ Os inputs do programa são dois arquivos do tipo csv, que contem os dados que ca
 * GeometriaNavio.csv - Arquivo com a geometria do navio: Número de blocos, tamanho e posição. Ao todo são 16 blocos
 de convés, 16 blocos de costado, 32 blocos de fundo e 6 de cofferdam (são blocos estanques que dividem o tanque) totalizando 70 blocos.
 
-<p float="center">
+div {
+ display: table; /* shrink wrap the contents */
+ margin: 0 auto; /* center via left/right margins */
+}
+<div>
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/ship.png" width="80%">
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/ship_blocks.png" width="15%">
-</p>
+</div>
 
 * EstructuralLoP.csv - Arquivo com as relações de precedência entre os blocos. Restrições físicas.
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/ordenation.png"/>
