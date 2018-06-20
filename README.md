@@ -29,8 +29,8 @@ de convés, 16 blocos de costado, 32 blocos de fundo e 6 de cofferdam (são bloc
 * Matriz de correlação entre tempos de edificação: Representa interações positivas e negativas nos recursos utilizados para a construção dos blocos.
 
 <p float="left">
-<img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/time_correlation_matrix.png" width="50%">
-<img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/blocks_const.png" width="50%">
+<img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/time_correlation_matrix.png" width="45%">
+<img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/blocks_const.png" width="45%">
 </p>
 ## Output:
 
