@@ -15,9 +15,11 @@ O trabalho apresenta uma análise realista do potencial do método de otimizaç�
 ## Input:
 
 * GeometriaNavio.csv - Arquivo com a geometria do navio: Número de blocos, tamanho e posição.
+
+<p float="left">
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/ship.png" width="40%">
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/ship_blocks.png" width="40%">
-
+</p>
 
 * EstructuralLoP.csv - Arquivo com as relações de precedência entre os blocos. Restrições físicas.
 !(Esquema de precdência dos Blocos)[link2]
