@@ -63,3 +63,7 @@ O resultado (cromossomo) é a sequencia dos "id"s dos blocos em ordem de edifica
 </p>
 
 As duas imagens acima são representações de uma mesma ordenação (ordenaçãod e construção pirmidal partindo do centro), o gráfico em calor tenta sintetizar em uma representação estática a sequência representada na animação através de uma escala de cor.  
+
+Para gerar as vizualizações acima, basta usar os programas a seguir e entrar com a ordenação desejada:
+ * [3DcolorShip](https://github.com/Lucas-Armand/genetic-algorithm/blob/master/vis/3DcolorShip.py)
+ * [3DsequenceShip](https://github.com/Lucas-Armand/genetic-algorithm/blob/master/vis/3DsequenceShip.py)
