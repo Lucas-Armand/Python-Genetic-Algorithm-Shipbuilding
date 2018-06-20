@@ -18,7 +18,7 @@ Os inputs do programa são dois arquivos do tipo csv, que contem os dados que ca
 * GeometriaNavio.csv - Arquivo com a geometria do navio: Número de blocos, tamanho e posição. Ao todo são 16 blocos
 de convés, 16 blocos de costado, 32 blocos de fundo e 6 de cofferdam (são blocos estanques que dividem o tanque) totalizando 70 blocos.
 
-<p float="left">
+<p float="left" >
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/ship.png" width="80%">
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/ship_blocks.png" width="15%">
 </p>
@@ -28,9 +28,11 @@ de convés, 16 blocos de costado, 32 blocos de fundo e 6 de cofferdam (são bloc
 
 * Matriz de correlação entre tempos de edificação: Representa interações positivas e negativas nos recursos utilizados para a construção dos blocos.
 
+<p float="left" >
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/time_correlation_matrix.png" width="45%">
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/blocks_const.png" width="45%">
-
+</p>
 ## Output:
 
-O resultado do programa apresenta o tempo total de construção do návio em "unidades de tempo", com
+Os resultados do programa são apresentado pelo o tempo total de construção do návio, da melhor ordenação obtida pelo programa, em "unidades de tempo" por geração, ou seja, os valores mostram, geração á geração, a convergência para o resultado ótimo do problema:
+<img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/terminal.png" width="80%">
