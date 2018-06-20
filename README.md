@@ -15,7 +15,7 @@ O trabalho apresenta uma análise realista do potencial do método de otimizaç�
 ## Input:
 Os inputs do programa são dois arquivos do tipo csv, que contem os dados que caracterizam as retrições do problema, e uma matriz que é definida dentro do próprio código:
 
-* GeometriaNavio.csv - Arquivo com a geometria do navio: Número de blocos, tamanho e posição. Ao todo são 16 blocos
+* **GeometriaNavio.csv** - Arquivo com a geometria do navio: Número de blocos, tamanho e posição. Ao todo são 16 blocos
 de convés, 16 blocos de costado, 32 blocos de fundo e 6 de cofferdam (são blocos estanques que dividem o tanque) totalizando 70 blocos.
 
 <p float="left" >
@@ -23,7 +23,7 @@ de convés, 16 blocos de costado, 32 blocos de fundo e 6 de cofferdam (são bloc
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/ship_blocks.png" width="15%">
 </p>
 
-* EstructuralLoP.csv - Arquivo com as relações de precedência entre os blocos. Restrições físicas.
+* **EstructuralLoP.csv** - Arquivo com as relações de precedência entre os blocos. Restrições físicas.
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/ordenation.png"/>
 
 * Matriz de correlação entre tempos de edificação: Representa interações positivas e negativas nos recursos utilizados para a construção dos blocos.
