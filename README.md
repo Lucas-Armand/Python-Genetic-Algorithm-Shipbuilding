@@ -32,7 +32,12 @@ de convés, 16 blocos de costado, 32 blocos de fundo e 6 de cofferdam (são bloc
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/time_correlation_matrix.png" width="45%">
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/blocks_const.png" width="45%">
 </p>
+
 ## Output:
 
 Os resultados do programa são apresentado pelo o tempo total de construção do návio, da melhor ordenação obtida pelo programa, em "unidades de tempo" por geração, ou seja, os valores mostram, geração á geração, a convergência para o resultado ótimo do problema:
 <img src="https://github.com/Lucas-Armand/genetic-algorithm/blob/master/img/terminal.png" width="80%">
+
+### Vizulização dos resultados:
+
+O resultado (cromossomo) é a sequencia dos "id"s dos blocos em ordem de edificação, mas como compriender o siginficado difícil "ler" os resultados eu desenvolvi dos modos de vizualização:
